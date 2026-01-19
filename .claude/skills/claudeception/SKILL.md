@@ -2,142 +2,186 @@
 
 ## Overview
 
-Claudeception is a skill for autonomous skill extraction and continuous learning. Instead of starting from scratch each session, it captures non-obvious discoveries (debugging techniques, workarounds, project patterns) and saves them as reusable skills for future reference.
+Claudeception is a skill for autonomous knowledge extraction and continuous learning. Instead of starting from scratch each session, it captures valuable discoveries across ANY domain—problem-solving approaches, research methods, communication patterns, workflows, technical solutions—and saves them as reusable skills for future reference.
 
-**The Problem**: Every time you use an AI coding agent, it starts from zero. You spend an hour debugging some obscure error, the agent figures it out, session ends. Next time you hit the same issue? Another hour.
+**The Problem**: Every session starts from zero. You spend time figuring something out, the session ends, knowledge is lost. Next time you face the same challenge? Start over.
 
-**The Solution**: Claude Code's native skills system loads skill descriptions at startup. Claudeception leverages this by writing new skills when it detects extractable knowledge.
+**The Solution**: Extract and preserve knowledge when genuine learning occurs. Skills are loaded at startup and matched semantically to future situations.
 
 ## When to Extract Skills
 
-Extract skills when encountering:
+### Technical & Coding
+- Non-obvious debugging solutions
+- Tool/framework integration patterns
+- Error resolution with misleading messages
+- Performance optimizations
+- Architecture decisions that worked
 
-- **Non-obvious Solutions**: Debugging requiring significant investigation not in documentation
-- **Project-Specific Patterns**: Conventions or configurations unique to the codebase
-- **Tool Integration Knowledge**: Proper usage not well-covered in docs
-- **Error Resolution**: Specific errors with misleading messages or non-obvious fixes
-- **Workflow Optimizations**: Multi-step processes or efficiency patterns
+### Research & Analysis
+- Effective search strategies for specific domains
+- How to find reliable sources on niche topics
+- Methods to verify conflicting information
+- Synthesis approaches for complex topics
+- Data interpretation techniques
+
+### Communication & Writing
+- Framing approaches that clarified complex ideas
+- Persuasion structures that worked
+- How to adapt tone for specific audiences
+- Templates for recurring communication types
+- Ways to give feedback that landed well
+
+### Problem-Solving & Decision Making
+- Mental models that unlocked solutions
+- How constraints were reframed productively
+- Decision frameworks for specific scenarios
+- Ways to break down overwhelming problems
+- Approaches that avoided common pitfalls
+
+### Workflows & Productivity
+- Multi-step processes worth repeating
+- Tool combinations that work well together
+- Automation patterns
+- Organization systems for specific tasks
+- Prioritization methods that helped
+
+### Domain-Specific Knowledge
+- Industry-specific conventions learned
+- Regulatory/compliance patterns
+- Best practices discovered through experience
+- Cultural or contextual nuances
+- Jargon translations that helped
 
 ## Quality Criteria
 
 Before extracting, verify:
 
-- **Reusable**: Helps with future tasks, not just current instance
-- **Non-trivial**: Requires discovery, not documentation lookup
-- **Specific**: Exact trigger conditions and solutions documented
-- **Verified**: Solution actually works, not theoretical
+- **Reusable**: Will this help in future similar situations?
+- **Non-trivial**: Did this require actual discovery or insight?
+- **Specific**: Can you describe exactly when this applies?
+- **Verified**: Did this actually work, not just sound good?
+- **Transferable**: Can this be explained clearly to future-you?
 
 ## Extraction Process
 
-### Step 1: Identify Knowledge
+### Step 1: Identify the Learning
 
-Analyze what was learned:
-- What was the core discovery?
-- Why was it non-obvious?
-- What are the exact trigger conditions?
-- What symptoms indicate this problem?
+Ask yourself:
+- What was the core insight or discovery?
+- Why wasn't this obvious from the start?
+- What situation triggered the need for this?
+- What would have helped me know this earlier?
 
-### Step 2: Research Best Practices
+### Step 2: Validate & Research
 
-When dealing with technologies, frameworks, or tools:
-- Search for current best practices
-- Check official documentation
-- Verify the solution aligns with recommended approaches
-
-Skip searching for project-specific patterns or internal conventions.
+- For technical knowledge: verify against current best practices
+- For domain knowledge: cross-reference sources
+- For approaches: consider if it generalizes or was context-specific
+- Skip validation for personal preferences or project-specific conventions
 
 ### Step 3: Structure the Skill
 
-Use the template in `resources/skill-template.md` with these sections:
-- **Problem**: Clear description of what this skill addresses
-- **Context/Trigger Conditions**: When to activate (errors, symptoms, environment)
-- **Solution**: Step-by-step instructions with code examples
-- **Verification**: How to confirm the fix worked
-- **Example**: Real-world before/after demonstration
-- **Notes**: Caveats, edge cases, related skills
+Include these sections:
+- **Problem/Challenge**: What situation does this address?
+- **Context/Triggers**: When should this activate? Be specific.
+- **Approach/Solution**: Step-by-step or principles to apply
+- **Verification**: How do you know it worked?
+- **Example**: Real scenario showing before/after
+- **Limitations**: When does this NOT apply?
 
-### Step 4: Write Semantic Descriptions
+### Step 4: Write for Semantic Matching
 
-Descriptions must be optimized for semantic matching:
-- Include specific error messages
-- Include framework/tool names
-- Include observable symptoms
-- Use action phrases
+Descriptions must match how the situation naturally comes up:
 
-Good: "Fix for PrismaClientKnownRequestError P2024 connection pool exhaustion in serverless"
-Bad: "Helps with database problems"
+**Technical:**
+- Good: "Fix connection pool exhaustion in serverless Prisma deployments"
+- Bad: "Database helper"
+
+**Research:**
+- Good: "Find primary sources on contested historical events with multiple narratives"
+- Bad: "Research help"
+
+**Communication:**
+- Good: "Explain technical concepts to non-technical stakeholders without condescension"
+- Bad: "Writing tips"
+
+**Problem-solving:**
+- Good: "Break decision paralysis when all options have significant tradeoffs"
+- Bad: "Decision making"
 
 ### Step 5: Save the Skill
 
-Save to one of these locations:
+Save to:
 - **Project-level**: `.claude/skills/[skill-name]/SKILL.md`
 - **User-level**: `~/.claude/skills/[skill-name]/SKILL.md`
 
-Use kebab-case for skill names.
+Use kebab-case for skill names (e.g., `explain-technical-to-executives`).
 
 ## Activation Triggers
 
 ### Automatic Activation
 
-Trigger skill evaluation after tasks involving:
-- Non-obvious debugging (>10 minutes of investigation)
-- Workarounds or trial-and-error discovery
-- Error resolution with misleading messages
-- Performance optimization discoveries
+Evaluate for extraction after:
+- Extended investigation or research (>10 minutes)
+- Trial-and-error that led to breakthrough
+- Reframing that unlocked progress
+- "Aha moments" where something clicked
+- Successfully navigating a tricky situation
+- Discovering something counter-intuitive
 
 ### Explicit Activation
 
 Activate when user:
-- Runs `/claudeception` command
 - Says "save this as a skill"
 - Asks "what did we learn?"
-- Requests knowledge preservation
+- Requests "remember this for next time"
+- Says "this would be useful to know in the future"
 
 ### Self-Check Protocol
 
-After each significant task, ask yourself:
-> "Would future-me benefit from this being documented?"
+After significant tasks, ask:
+> "Would future-me benefit from having this documented?"
+> "If I faced this situation again in 6 months, what would I want to know?"
 
 If yes, extract the skill.
 
 ## Anti-Patterns to Avoid
 
-- **Over-extraction**: Not every fix needs a skill
-- **Vague descriptions**: "Helps with errors" is useless
-- **Unverified solutions**: Only save what actually worked
-- **Duplicating docs**: Don't replicate official documentation
-- **Outdated knowledge**: Research current best practices first
+- **Over-extraction**: Not every task produces extractable knowledge
+- **Vague descriptions**: "Helps with problems" matches nothing useful
+- **Unverified approaches**: Only save what actually worked
+- **Obvious information**: Don't document what's easily searchable
+- **Context-dependent luck**: Distinguish generalizable insights from one-off wins
+- **Opinion as fact**: Be clear about what's preference vs. proven
 
-## Skill Discovery
+## Skill Categories
 
-Skills are discovered through semantic matching. Write descriptions that match how problems manifest:
-
-```
-User asks: "Getting P2024 timeout error in my Vercel deployment"
-Skill description: "Fix for PrismaClientKnownRequestError P2024 connection pool exhaustion in serverless environments like Vercel, Netlify, AWS Lambda"
-Result: Match!
-```
-
-## Directory Structure
+Organize skills by domain for easier discovery:
 
 ```
-.claude/skills/claudeception/
-├── SKILL.md                 # This file - main specification
-├── README.md                # Setup and usage instructions
-├── resources/
-│   └── skill-template.md    # Template for new skills
-├── scripts/
-│   └── claudeception-activator.sh  # Auto-activation hook
-└── examples/                # Reference implementations
-    ├── nextjs-server-side-error-debugging/
-    ├── prisma-connection-pool-exhaustion/
-    └── typescript-circular-dependency/
+.claude/skills/
+├── claudeception/           # This meta-skill
+├── coding/
+│   ├── prisma-serverless-connections/
+│   └── typescript-circular-deps/
+├── research/
+│   ├── finding-primary-sources/
+│   └── validating-conflicting-claims/
+├── communication/
+│   ├── technical-to-executives/
+│   └── giving-critical-feedback/
+├── problem-solving/
+│   ├── breaking-decision-paralysis/
+│   └── reframing-constraints/
+└── workflows/
+    ├── code-review-checklist/
+    └── research-synthesis-process/
 ```
 
-## Integration with Claude Code
+## Integration with Claude
 
-Claude Code automatically loads skills from:
+Claude automatically loads skills from:
 1. `.claude/skills/*/SKILL.md` (project-level)
 2. `~/.claude/skills/*/SKILL.md` (user-level)
 
-Skills are loaded at session start and matched semantically against user queries.
+Skills are matched semantically—write descriptions that match how situations naturally arise.

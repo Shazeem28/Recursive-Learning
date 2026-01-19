@@ -1,76 +1,76 @@
 # Skill Template
 
-Use this template when creating new skills. Copy and fill in each section.
+Use this template when extracting new skills. Copy and fill in each section.
 
 ---
 
 | Field | Value |
 |-------|-------|
 | Name | `skill-name-in-kebab-case` |
-| Description | Precise description enabling semantic matching. Include error codes, framework names, symptoms. |
+| Description | Precise description for semantic matching. Include specific triggers, domain terms, and observable situations. |
+| Category | coding / research / communication / problem-solving / workflow / domain-specific |
 | Author | Your name or "claudeception" |
 | Version | 1.0.0 |
 | Date | YYYY-MM-DD |
 
-## Problem
+## Problem / Challenge
 
-Clear, concise description of the problem this skill addresses.
+Clear, concise description of the situation this skill addresses.
 
-- What pain point does this solve?
-- Who encounters this issue?
-- Why is it non-obvious?
+- What challenge or pain point does this solve?
+- Who encounters this situation?
+- Why is it non-obvious or tricky?
 
 ## Context / Trigger Conditions
 
 When should this skill activate? Be specific:
 
-- **Error Messages**: Exact error text
-  ```
-  Error: [Exact error message here]
-  ```
-- **Symptoms**: Observable behaviors
-  - Symptom 1
-  - Symptom 2
-- **Environment**: When does this occur?
-  - Framework/tool versions
-  - Platform (serverless, local, container)
-  - Configuration states
+- **Situations**: What scenarios indicate this applies?
+  - Situation 1
+  - Situation 2
+- **Signals**: Observable signs this is relevant
+  - Signal 1
+  - Signal 2
+- **Environment**: Any specific context required?
+  - Domain, tools, constraints, etc.
 
-## Solution
+For technical skills, include exact error messages:
+```
+Error: [Exact error message here]
+```
 
-Step-by-step instructions to resolve the issue:
+## Approach / Solution
+
+Step-by-step guidance to address the situation:
 
 ### Step 1: [First Action]
 
-Description of what to do.
+What to do and why.
 
-```language
-// Code example if applicable
+```
+// Example if applicable (code, template, script, etc.)
 ```
 
 ### Step 2: [Second Action]
 
-Description of what to do.
-
-```language
-// Code example if applicable
-```
+What to do and why.
 
 ### Step 3: [Third Action]
 
-Description of what to do.
+What to do and why.
 
-```language
-// Code example if applicable
-```
+### Key Principles
+
+- Principle 1: Why this matters
+- Principle 2: Why this matters
 
 ## Verification
 
-How to confirm the fix worked:
+How to confirm this worked:
 
-1. [ ] Verification step 1
-2. [ ] Verification step 2
-3. [ ] Expected outcome: [describe what success looks like]
+1. [ ] Check 1: What to look for
+2. [ ] Check 2: What to look for
+3. [ ] Expected outcome: What success looks like
 
 ## Example
 
@@ -82,27 +82,31 @@ Describe a concrete situation where this applies.
 
 ### Before
 
-```language
-// Problematic code or error output
+The problematic state, failed approach, or initial situation.
+
+```
+// Code, conversation, output, or description
 ```
 
 ### After
 
-```language
-// Fixed code or successful output
+The improved state after applying this skill.
+
+```
+// Code, conversation, output, or description
 ```
 
-## Notes
+## Limitations
 
-Important considerations:
+Important boundaries and caveats:
 
-- **Caveats**: Edge cases or limitations
-- **Related Skills**: Links to complementary skills
-- **Known Limitations**: When this doesn't work
-- **When NOT to Use**: Situations where this is wrong approach
+- **When NOT to use**: Situations where this doesn't apply
+- **Edge cases**: Where this might need modification
+- **Dependencies**: What this assumes or requires
+- **Related skills**: Complementary knowledge to consider
 
 ## References
 
-- [Link to relevant documentation]
-- [Link to related GitHub issues]
-- [Link to Stack Overflow answers]
+- [Link to relevant resource]
+- [Link to documentation]
+- [Link to related discussion]
